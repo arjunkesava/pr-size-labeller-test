@@ -1,0 +1,15 @@
+# used in the display name of the check run
+# e.g. a check run with name of 'foo' will be displayed on the PR page as => 'pr-lint-checks/foo'
+checkRunDisplayNamePrefix: ''
+
+run:
+  # entries can be defined in two ways:
+  # 1 - as a dict, w/ the following properties:
+  #   - 'name' => display name (includes 'checkRunDisplayNamePrefix' as a prefix if defined)
+  #   - 'file' => script to be run
+  # 2 - as a plain string, where the file basename will be used as the display name, e.g. 'bin/foo.sh' => 'foo.sh'
+  checkRuns:
+    - name: 'add label based on pr size'
+      file: 'bin/pr-size.sh'
+    # - name: 'example - list files added, removed, and updated'
+    #   file: 'bin/pr-lint-checks/example--ls-files-updated-in-pr-head.sh'
